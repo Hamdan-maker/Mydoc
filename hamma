@@ -38,6 +38,32 @@ class Solution:
             anagrams[sorted_word].append(word)
         
         result = []
+
+
+
+
+from collections import defaultdict
+
+class Solution:
+    def groupAnagram(self, strs):
+        anagrams = defaultdict(list)
+        for word in strs:
+            sorted_word = ''.join(sorted(word))
+            anagrams[sorted_word].append(word)
+        
+        result = []
+        for group in sorted(anagrams.values()):
+            result.append(' '.join(group))  # Remove sorting here
+        
+        return result
+
+# Example usage:
+sol = Solution()
+input_list = ["eat", "tea", "tan", "ate", "nat", "bat"]
+output = sol.groupAnagram(input_list)
+for group in output:
+    print(group)
+
         for group in sorted(anagrams.values()):
             result.append(' '.join(sorted(group)))
         
