@@ -1,20 +1,19 @@
-
 from collections import defaultdict
 
 class Solution:
     def groupAnagram(self, strs):
         anagrams = defaultdict(list)
+        
         for word in strs:
-            count = [0] * 26  # Initialize count array for each word
-            for char in word:
-                count[ord(char) - ord('a')] += 1  # Count frequency of each character
-            anagrams[tuple(count)].append(word)  # Use tuple of counts as key
+            # Sort the word and use it as a key
+            sorted_word = ''.join(sorted(word))
+            anagrams[sorted_word].append(word)
         
         result = []
         for group in anagrams.values():
-            result.append(' '.join(sorted(group)))  # Sort the group
+            result.append(' '.join(sorted(group)))  # Sort each group lexicographically
         
-        return sorted(result)  # Sort the entire result list
+        return sorted(result)  # Sort the entire list of groups
 
 # Example usage:
 sol = Solution()
