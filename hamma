@@ -26,3 +26,27 @@ nat tan
 
 Explanation:
 As ate comes before bat so the group of anagrams of ate should come before group of anagrams of bat. same for others.
+
+
+from collections import defaultdict
+
+class Solution:
+    def groupAnagram(self, strs):
+        anagrams = defaultdict(list)
+        for word in strs:
+            sorted_word = ''.join(sorted(word))
+            anagrams[sorted_word].append(word)
+        
+        result = []
+        for group in sorted(anagrams.values()):
+            result.append(' '.join(sorted(group)))
+        
+        return result
+
+# Example usage:
+sol = Solution()
+input_list = ["eat", "tea", "tan", "ate", "nat", "bat"]
+output = sol.groupAnagram(input_list)
+for group in output:
+    print(group)
+
