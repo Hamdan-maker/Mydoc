@@ -60,9 +60,7 @@ class Solution:
 # Example usage:
 sol = Solution()
 input_list = ["eat", "tea", "tan", "ate", "nat", "bat"]
-output = sol.groupAnagram(input_list)
-for group in output:
-    print(group)
+output = 
 
         for group in sorted(anagrams.values()):
             result.append(' '.join(sorted(group)))
